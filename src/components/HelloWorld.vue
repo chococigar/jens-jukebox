@@ -72,17 +72,27 @@
       ],
       this.lonely = [
         {  name: 'Everybody\'s changing', videoId : 'Zx4Hjq6KwO0'  },
-        {  name: 'You and I', videoId : 'oGEwc4xap0E'  },
+        {  name: 'Yoü And I', videoId : 'oGEwc4xap0E'  },
         {  name: 'Let you love me', videoId : 'XCQK6LmhYqc'  },
         {  name: 'Daughter', videoId : 'VEpMj-tqixs'  },
         {  name: 'Stay high', videoId : 'oh2LWWORoiM'  },
         {  name: 'Dear old Nicki', videoId : '-NZFsjWHC9I'  },
         {  name: 'Catcher in the Rye', videoId : '4PNNzSNtihI'  },
+        {  name: 'Adios Nonino', videoId : 'VTPec8z5vdY'  },
+        {  name: 'Exogenesis: Symphony, Part 3 (Redemption)', videoId : 'tdhlQzFX-PU'  },
+        {  name: 'Take me to church', videoId : 'PVjiKRfKpPI'  },
+        {  name: 'Adios Nonino', videoId : 'VTPec8z5vdY'  },
+        {  name: 'Exogenesis: Symphony, Part 3 (Redemption)', videoId : 'tdhlQzFX-PU'  },
+        {  name: 'No interruption', videoId : '_t431MAUQlQ'  },
 
       ],
       this.crazy = [
         {  name: 'Hallucinating', videoId : 'DzOpGMg8g5M'  },
-        {  name: 'I go crazy', videoId : 'evUe46ua8Ao'  }
+        {  name: 'I go crazy', videoId : 'evUe46ua8Ao'  },
+        {  name: 'Small room syndrome', videoId : 'VWoCGTGPxHs'  },
+        {  name: 'I go crazy', videoId : 'evUe46ua8Ao'  },
+        {  name: 'I\'m going slightly mad', videoId : 'Od6hY_50Dh0'  },
+ 
       ],
       this.angry = [
         {  name: 'Evil deeds', videoId : 'M7LRcDMVMTw'  },
@@ -105,6 +115,7 @@
         {  name: 'Lucky', videoId : 'acvIVA9-FMQ'  },
         {  name: 'I\'m yours', videoId : 'EkHTsc9PU2A'   },
         {  name: 'Sweet disposition', videoId : 'jxKjOOR9sPU'  },
+        {  name: 'Mr.Sandman', videoId : '9xMCNmUaGko'  },
       ],
       this.workout = [
         {  name: 'Overtime', videoId : '85ftfVUTzM4'  },
@@ -124,6 +135,8 @@
         {  name: 'Bad blood', videoId : 'QcIy9NiNbmo'  },
         {  name: 'Stronger faster better', videoId : 'PsO6ZnUZI0g'  },
         {  name: 'Broken Arrows', videoId : 'V6iKSUoUN48'  },
+        {  name: 'Work bitch', videoId : 'pt8VYOfr8To'  },
+
       ],
       this.whatever = [
         {  name: 'Changing of the seasons', videoId : 'ovnCXhogusc'  },
@@ -143,11 +156,17 @@
         {  name: 'Better friends', videoId : 'j7vKsUYpvIQ'  },
         {  name: 'Cheapest flight', videoId : 'eCstDa1p_yE'  },
         {  name: 'Who\'s got you singing again', videoId : 'h-Yiku4Al48'  },
+        {  name: 'Cheapest flight', videoId : 'eCstDa1p_yE'  },
+        {  name: 'Another One (Demo) #1', videoId : 'l7qkSlJ7h_M'  },
+        {  name: 'Who\'s got you singing again', videoId : 'h-Yiku4Al48'  },
+        {  name: 'Leaning on you', videoId : 'B4wruSAdKvs'  },
       ],
       this.upbeat = [
         {  name: 'Little talks', videoId : 'ghb6eDopW8I'  },
         {  name: 'Broke', videoId : 'fe0Enf31npc'  },
         {  name: 'Love me less', videoId : 'QO_Qz7ivhYQ'  },
+        {  name: 'Pray for me', videoId : 'XR7Ev14vUh8'  },
+        {  name: 'Wake up', videoId : 'TZD7CNRSq28'  },
 
       ],
       this.scared = [
@@ -162,6 +181,12 @@
         {  name: 'Ce Bon Vieux Jean Lassalle', videoId : 'fSGtBqO1S0E'  },
         {  name: 'Do you want my love', videoId : 'J1SWn2IGOV4'  },
         {  name: 'Yamaha', videoId : 'OnW6rQ_z9Ug'  },
+        {  name: 'Starry Night', videoId : 'r_wwmmo6UGY'  },
+        {  name: 'Work bitch', videoId : 'pt8VYOfr8To'  },
+        {  name: 'Howl\'s moving castle', videoId : 'UwxatzcYf9Q'  },
+        {  name: 'Coffee house', videoId : 'LhkkCkBU-8s'  },
+        {  name: 'Bamboo water fountain', videoId : 'aJaZc4E8Y4U'  },
+        
       ],
       this.powerwoman = [
         {  name: 'Oh No', videoId : 'Cr-SqRWImmI'  },
