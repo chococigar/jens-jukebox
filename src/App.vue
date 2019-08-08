@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img alt="Vue logo" src="./assets/cassette.gif" 
+        style="height:20em">
     <HelloWorld msg="Jen's Jukebox"/>
   </div>
 </template>

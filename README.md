@@ -1,5 +1,8 @@
 # music-rec
 
+## Demo
+Currently served on https://jens-jukebox.herokuapp.com/
+
 ## Project setup
 ```
 npm install
