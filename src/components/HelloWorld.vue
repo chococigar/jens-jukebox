@@ -22,7 +22,7 @@
     <div>
       <h2> You're feeling 
         <span style='font-weight:900;color:#B86CD9'>
-          <span v-if="this.curMood.value == 'workout' | this.curMood.value == 'studying'">like </span>{{  this.curMood.value  }}
+          <span v-if="this.curMood.value == 'workout' | this.curMood.value == 'working' | this.curMood.value == 'whatever'">like </span>{{  this.curMood.value  }}
         </span>  
       </h2>
       <h3> Jen suggests {{  this.videoName  }}. </h3>
