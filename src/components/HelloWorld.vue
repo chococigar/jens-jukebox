@@ -19,8 +19,12 @@
           {{  emo.disp }}
       </li>
     </ul>
-    <div v-if='videoId'>
-      <h2> You're feeling <span style='font-size:2em'>{{  this.curMood.disp  }}</span>  </h2>
+    <div>
+      <h2> You're feeling 
+        <span style='font-weight:900;color:#B86CD9'>
+          <span v-if="this.curMood.value == 'workout' | this.curMood.value == 'studying'">like </span>{{  this.curMood.value  }}
+        </span>  
+      </h2>
       <h3> Jen suggests {{  this.videoName  }}. </h3>
 
       <youtube :video-id="videoId" :player-vars=" {  autoplay: 1  } " @ready="ready" @playing="playing"></youtube>
@@ -40,7 +44,7 @@
     data () {
       return {
         emoji: [
-          {  disp: '🕵️‍♂️', value:'spy'  },
+          {  disp: '🕵️‍♂️', value:'spylike'  },
           {  disp: '😢', value:'lonely'  },
           {  disp: '🤪', value:'crazy'  },
           {  disp: '🤬', value:'angry'  },
@@ -49,23 +53,13 @@
           {  disp: '🤷‍♂️', value:'whatever'  },
           {  disp: '😌', value:'chill'  },
           {  disp: '👏 ', value:'upbeat'  },
-          {  disp: '😰', value:'scared'  },
-          {  disp: '👩‍💻', value:'studying'  },
-          {  disp: '👊', value:'powerwoman'  },
-          {  disp: '🕳', value:'sad'  },
+          {  disp: '😰', value:'stressed'  },
+          {  disp: '👩‍💻', value:'working'  },
+          {  disp: '👊', value:'powerful'  },
+          {  disp: '🕳', value:'depressed'  },
           {  disp: '🍸', value:'french'  }
         ],
-        item: {
-          value: '',
-          text: '',
-        },
-        curMood: null,
-        videoId: null, // fallback IWIMME
-        videoName: null // fallback
-      }
-    },
-    created() {
-      this.spy = [
+     spylike: [
         {  name: 'Dance of the knights', videoId : 'DUmq1cpcglQ'  },
         {  name: 'Piano Concerto no.2 op.18', videoId : 'rEGOihjqO9w'  },
         {  name: 'Katyusha', videoId : '7J__ZdvsZaE'  },
@@ -73,7 +67,7 @@
         {  name: 'Waltz No.2', videoId : 'mmCnQDUSO4I'  },
         {  name: 'Genius', videoId : 'HhoATZ1Imtw'  },
       ],
-      this.lonely = [
+      lonely: [
         {  name: 'Everybody\'s changing', videoId : 'Zx4Hjq6KwO0'  },
         {  name: 'Yoü And I', videoId : 'oGEwc4xap0E'  },
         {  name: 'Let you love me', videoId : 'XCQK6LmhYqc'  },
@@ -89,7 +83,7 @@
         {  name: 'No interruption', videoId : '_t431MAUQlQ'  },
 
       ],
-      this.crazy = [
+      crazy: [
         {  name: 'Hallucinating', videoId : 'DzOpGMg8g5M'  },
         {  name: 'I go crazy', videoId : 'evUe46ua8Ao'  },
         {  name: 'Small room syndrome', videoId : 'VWoCGTGPxHs'  },
@@ -97,13 +91,13 @@
         {  name: 'I\'m going slightly mad', videoId : 'Od6hY_50Dh0'  },
  
       ],
-      this.angry = [
+      angry: [
         {  name: 'Evil deeds', videoId : 'M7LRcDMVMTw'  },
         {  name: 'Bury a friend', videoId : 'HUHC9tYz8ik'  },
         {  name: 'Kamikaze', videoId : 'jQh3YBAVWCE'  },
         {  name: 'Five nights at Freddie\'s', videoId : 'AjIXqh6q6Bg'  },
       ],
-      this.loving = [
+      loving: [
         {  name: 'Lover Boy', videoId : '8HnLRrQ3RS4'  },
         {  name: 'Altogether Alone', videoId : 'S9ZocwLckQw'  },
         {  name: 'Thousand Miles', videoId : 'Cwkej79U3ek'   },
@@ -120,7 +114,7 @@
         {  name: 'Sweet disposition', videoId : 'jxKjOOR9sPU'  },
         {  name: 'Mr.Sandman', videoId : '9xMCNmUaGko'  },
       ],
-      this.workout = [
+      workout: [
         {  name: 'Overtime', videoId : '85ftfVUTzM4'  },
         {  name: 'Titanium', videoId : 'JRfuAukYTKg'  },
         {  name: 'I need your love', videoId : 'AtKZKl7Bgu0'  },
@@ -141,14 +135,14 @@
         {  name: 'Work bitch', videoId : 'pt8VYOfr8To'  },
 
       ],
-      this.whatever = [
+      whatever: [
         {  name: 'Changing of the seasons', videoId : 'ovnCXhogusc'  },
         {  name: 'Next year', videoId : 'VTuJuok5QK4'  },
         {  name: 'Better by myself', videoId : 'aQgRkWG6q_g'  },
         {  name: 'Side Effects', videoId : 'nuckTcoZG4Q'  },
         {  name: 'Blame it on your love', videoId : 'y9Q4ttXokGs'  },
       ],
-      this.chill = [
+      chill: [
         {  name: 'What if I go?', videoId : 'pLuQ0MGLBXU'  },
         {  name: '1 Night', videoId : 'sjle_ZI4elo'  },
         
@@ -164,7 +158,7 @@
         {  name: 'Who\'s got you singing again', videoId : 'h-Yiku4Al48'  },
         {  name: 'Leaning on you', videoId : 'B4wruSAdKvs'  },
       ],
-      this.upbeat = [
+      upbeat: [
         {  name: 'Little talks', videoId : 'ghb6eDopW8I'  },
         {  name: 'Broke', videoId : 'fe0Enf31npc'  },
         {  name: 'Love me less', videoId : 'ZznsQjzlHIE'  },
@@ -172,12 +166,12 @@
         {  name: 'Wake up', videoId : 'TZD7CNRSq28'  },
 
       ],
-      this.scared = [
+      stressed: [
         {  name: 'Doubt', videoId : 'RfgL_OaTomc'  },
         {  name: 'After the storm', videoId : '9f5zD7ZSNpQ'  },
         {  name: 'Houdini', videoId : '_GMQLjzVGfw'  },
       ],
-      this.studying = [
+      working: [
         {  name: 'Han jan', videoId : 'A8S5Rd_02uA'  },
         {  name: 'Itgehane', videoId : 'SlbVgjFvE3I'  },
         {  name: 'Piano Concerto no.2 op.18', videoId : 'rEGOihjqO9w'  },
@@ -191,7 +185,7 @@
         {  name: 'Bamboo water fountain', videoId : 'aJaZc4E8Y4U'  },
         
       ],
-      this.powerwoman = [
+      powerful: [
         {  name: 'Oh No', videoId : 'Cr-SqRWImmI'  },
         {  name: 'Primadonna', videoId : 'Gj5L9SYhoSE'  },
         {  name: 'How to be a heartbreaker', videoId : 'vKNcuTWzTVw'  },
@@ -201,7 +195,7 @@
         {  name: 'Brave', videoId : 'QUQsqBqxoR4'  },
         {  name: 'King of anything', videoId : 'eR7-AUmiNcA'  },
       ],
-      this.sad = [
+      depressed: [
         {  name: 'My Immortal', videoId : '5anLPw0Efmo'  },
         {  name: 'You found me', videoId : 'jFg_8u87zT0'  },
         {  name: 'Dream is destiny', videoId : 'o2zf28T0LFU'  },
@@ -209,15 +203,26 @@
         {  name: 'Take me somewhere nice', videoId : 'luM6oeCM7Yw'  },
         {  name: 'Love for a child', videoId : 'X1gvLMz63Zc'  },
       ],
-      this.french = [
+      french: [
         {  name: 'Tu Si Na Cosa Grande', videoId : '0cKCULV3WZ8'  },
         {  name: 'La Seine And I', videoId : 'S2V6jF79X7Q'  },
         {  name: 'Girl from Ipanema', videoId : 'sVdaFQhS86E'  },
         {  name: 'Amour T\'es Là ', videoId : 'JFkRtjrrM5k'   },
         {  name: 'Why try to change me now', videoId : '8uf1n1wUfxE'  },
         {  name: 'Fly me to the moon', videoId : 'qyqssZA9hww'  },
-      ]
-
+      ],
+        item: {
+          value: '',
+          text: '',
+        },
+        curMood: null,
+        videoId:null, // fallback IWIMME
+        videoName: null // fallback
+      }
+    },
+    created() {
+      this.randomMood()
+      console.log("CREATED");
     },
     methods: {
       reset () {
@@ -251,6 +256,11 @@
       },
       pause () {
         this.player.pauseVideo()
+      },
+      randomMood(){
+        var curMoodInd = Math.floor(Math.random() * this.emoji.length);
+        this.curMood = this.emoji[curMoodInd];
+        this.pickMusic(this.curMood);
       }
     },
     components: {
@@ -289,9 +299,8 @@
 }
 
 .active{
-  text-shadow: 0px 0px 30px skyblue, 
-               0px 0px 30px skyblue, 
-               0px 0px 30px purple;
+  text-shadow: 0px 0px 30px #F21DA8, 
+               0px 0px 30px #B86CD9;
 }
 
 h3 {
