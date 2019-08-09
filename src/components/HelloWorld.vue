@@ -12,14 +12,16 @@
     </model-select>  -->
     <ul>
       <li 
-        v-for="emo in emoji" 
-        style="font-size:4em; margin:0px"
-        v-on:click='pickMusic(emo.value)'>
+        v-for='emo in emoji' 
+        style='font-size:4em; margin:0px'
+        v-on:click='pickMusic(emo)'
+        v-bind:class="{'emo-item':true, 'active':(curMood && emo.value === curMood.value)}">
           {{  emo.disp }}
       </li>
     </ul>
-    <div v-if="videoId">
-      <h3>Jen suggests {{  this.videoName  }}.</h3>
+    <div v-if='videoId'>
+      <h2> You're feeling <span style='font-size:2em'>{{  this.curMood.disp  }}</span>  </h2>
+      <h3> Jen suggests {{  this.videoName  }}. </h3>
 
       <youtube :video-id="videoId" :player-vars=" {  autoplay: 1  } " @ready="ready" @playing="playing"></youtube>
     </div>
@@ -57,6 +59,7 @@
           value: '',
           text: '',
         },
+        curMood: null,
         videoId: null, // fallback IWIMME
         videoName: null // fallback
       }
@@ -164,7 +167,7 @@
       this.upbeat = [
         {  name: 'Little talks', videoId : 'ghb6eDopW8I'  },
         {  name: 'Broke', videoId : 'fe0Enf31npc'  },
-        {  name: 'Love me less', videoId : 'QO_Qz7ivhYQ'  },
+        {  name: 'Love me less', videoId : 'ZznsQjzlHIE'  },
         {  name: 'Pray for me', videoId : 'XR7Ev14vUh8'  },
         {  name: 'Wake up', videoId : 'TZD7CNRSq28'  },
 
@@ -223,7 +226,9 @@
       selectFromParentComponent1 () {
         this.item = this.options[0]
       },
-      pickMusic (mood) {
+      pickMusic (emo) {
+        var mood = emo.value
+        this.curMood = emo
         var randomSongInd = Math.floor(Math.random() * this[mood].length);
         this.videoId = this[mood][randomSongInd].videoId;
         this.videoName = this[mood][randomSongInd].name;
@@ -258,6 +263,37 @@
 <style scoped>
 .hello {
 }
+.emo-item:hover{
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-0.5px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(1px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-2px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(2px, 0, 0);
+  }
+}
+
+.active{
+  text-shadow: 0px 0px 30px skyblue, 
+               0px 0px 30px skyblue, 
+               0px 0px 30px purple;
+}
+
 h3 {
   margin: 40px 0 0;
 }
